@@ -1,0 +1,52 @@
+[
+{
+  "description": "<pre>I want to be able to test a python script and ran successfully</pre>",
+  "elements": [
+    {
+      "description": "",
+      "id": "example-of-referencing-a-script-in-src;python-script-generating-files-can-be-referenced",
+      "keyword": "Scenario",
+      "line": 19,
+      "location": "tests/features/reference-src.feature:19",
+      "name": "Python script generating files can be referenced",
+      "steps": [
+        {
+          "keyword": "When",
+          "line": 20,
+          "match": {
+            "location": "tests/features/steps/reference_src.py:39"
+          },
+          "name": "I reference a generated src file in my test file",
+          "result": {
+            "duration": 2806902,
+            "status": "passed"
+          },
+          "step_type": "when"
+        },
+        {
+          "keyword": "Then",
+          "line": 21,
+          "match": {
+            "location": "tests/features/steps/reference_src.py:52"
+          },
+          "name": "the build can successfully resolve the imports",
+          "result": {
+            "duration": 37909,
+            "status": "passed"
+          },
+          "step_type": "then"
+        }
+      ],
+      "tags": [],
+      "type": "scenario"
+    }
+  ],
+  "id": "example-of-referencing-a-script-in-src",
+  "keyword": "Feature",
+  "line": 16,
+  "name": "Example of referencing a script in src",
+  "status": "passed",
+  "tags": [],
+  "uri": "tests/features/reference-src.feature"
+}
+]

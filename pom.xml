@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+
+    Copyright ${inceptionYear} Booz Allen Hamilton.
+
+    Booz Allen Hamilton Confidential Information.
+
+    The contents of this file are the intellectual property of
+    Booz Allen Hamilton, Inc. ("BAH") and are subject to copyright protection
+    under the laws of the United States and other countries.
+
+    You acknowledge that misappropriation, misuse, or redistribution of content
+    on the file could cause irreparable harm to BAH and/or to third parties.
+
+    You may not copy, reproduce, distribute, publish, display, execute, modify,
+    create derivative works of, transmit, sell or offer for resale, or in any way
+    exploit any part of this code or program without BAH's express written permission.
+
+    The contents of this code or program contains code
+    that is itself or was created using artificial intelligence.
+
+    To the best of our knowledge, this code does not infringe third-party intellectual
+    property rights, contain errors, inaccuracies, bias, or security concerns.
+
+    However, Booz Allen does not warrant, claim, or provide any implied
+    or express warranty for the aforementioned, nor of merchantability
+    or fitness for purpose.
+
+    Booz Allen expressly limits liability, whether by contract, tort or in equity
+    for any damage or harm caused by use of this artificial intelligence code or program.
+
+    Booz Allen is providing this code or program "as is" with the understanding
+    that any separately negotiated standards of performance for said code
+    or program will be met for the duration of any applicable contract under which
+    the code or program is provided.
+
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>test-universal-config</groupId>
+    <artifactId>test-universal-config</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <name>Universal Config</name>
+    <description>Universal config</description>
+
+    <modules>
+        <module>universal-config</module>
+<!--        <module>example</module>-->
+    </modules>
+    <properties>
+        <version.maven.compiler.plugin>3.14.0</version.maven.compiler.plugin>
+        <version.maven.deploy.plugin>3.1.4</version.maven.deploy.plugin>
+        <version.maven.install.plugin>3.1.4</version.maven.install.plugin>
+        <version.maven.jar.plugin>3.4.2</version.maven.jar.plugin>
+        <version.maven.surefire.plugin>3.5.2</version.maven.surefire.plugin>
+        <version.maven.resources.plugin>3.3.1</version.maven.resources.plugin>
+        <version.maven.clean.plugin>3.4.1</version.maven.clean.plugin>
+    </properties>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.technologybrewery.habushu</groupId>
+                    <artifactId>habushu-maven-plugin</artifactId>
+                    <version>3.1.0-SNAPSHOT</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <pythonVersion>3.12.8</pythonVersion>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-clean-plugin</artifactId>
+                    <version>${version.maven.clean.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${version.maven.compiler.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                    <version>${version.maven.deploy.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-install-plugin</artifactId>
+                    <version>${version.maven.install.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-jar-plugin</artifactId>
+                    <version>${version.maven.jar.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                    <version>${version.maven.surefire.plugin}</version>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-resources-plugin</artifactId>
+                    <version>${version.maven.resources.plugin}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>

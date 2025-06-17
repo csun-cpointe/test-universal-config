@@ -1,0 +1,92 @@
+[project]
+name = "universal_config"
+version = "1.0.0.dev"
+description = "Example of how to use Habushu for pytest testing"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "cryptography>=44.0.1",
+    "uvicorn[standard]>=0.19.0",
+    "krausening>=20",
+]
+
+[tool.uv]
+# habushu will detect the pytest dependency for test package
+dev-dependencies = [
+    "pytest>=8.3.3",
+    "behave",
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[dependency-groups]
+dev = [
+    "kappa-maki>=1.0.2",
+    "ruff>=0.11.13",
+]
+
+[tool.ruff.lint]
+select = [
+    "S",   # Flake8-bandit
+    "ANN", # Type Annotations
+    "ARG", # unused args
+    "B",   # flake8-bugbear
+    "D",   # pydocstyle
+    "E",   # pycodestyle - errors
+    "F",   # Pyflakes
+    "FBT", # Boolean traps; https://pypi.org/project/flake8-boolean-trap/
+    "I",   # isort
+    "N",   # PEP8 Naming Conventions
+    "PGH", # PyGrepHooks
+    "PIE", # https://beta.ruff.rs/docs/rules/#flake8-pie-pie
+    "PTH", # flake8-use-pathlib
+    "RUF", # Ruff-specific rules
+    "SIM", # flake8-simplify
+    "TCH", # Type-checking linter; for common mistake relates to type-checking imports.
+    "UP",  # pyupgrade
+    "W",   # pycodestyle - warnings
+]
+
+ignore = [
+    "ANN002", # missing-type-args
+    "ANN003", # missing-type-kwargs
+    "ANN204", # missing-return-type-special-method
+    "E501",
+    "F811",
+    "D100",
+    "I001",
+    "D107",
+    "D103",
+    "D101",
+    "D102",
+    "D104"
+]
+
+[tool.ruff.lint.extend-per-file-ignores]
+"tests/**/*.py" = [
+    "S101",   # asserts allowed in tests...
+    "S311",   # Standard pseudo-random generators are not suitable for cryptographic purposes
+    "ANN",    # Don't care about missing type annotations in tests
+    "ARG001", # Unused function args -> fixtures nevertheless are functionally relevant...
+    "FBT",    # Don't care about booleans as positional arguments in tests, e.g. via @pytest.mark.parametrize()
+]
+
+"conftest.py" = [
+    "ARG001", # Allow un-used function args in conftest.py b'c fixtures.
+]
+
+# Marimo notebook specific rule ignores.
+"notebooks/**/*.py" = [
+    "N807",   # dunder names re: cells.
+    "ANN202", # missing return types re: cells.
+    "ANN001", # missing type annotations re: cells.
+    "B018",   # Related to displaying notebook values.
+]
+
+# Added by habushu-maven-plugin at 2025-05-28T11:14:05.030970 to use https://pypi.org/simple/ as source repository for installing dependencies
+[[tool.uv.index]]
+name = "pypi"
+url = "https://pypi.org/simple/"
+publish-url = "https://pypi.org/simple/"
